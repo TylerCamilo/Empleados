@@ -18,6 +18,7 @@ class EmpleadoAdmin(admin.ModelAdmin):
         'Departamento',
         'job',
         'full_name',
+        'id'
     )
 
     def full_name(self,obj):
@@ -27,7 +28,7 @@ class EmpleadoAdmin(admin.ModelAdmin):
 
 
     search_fields = ('last_name',)
-    list_filter = ('job', 'habilidades')               #dentro del parentesis va el registro donde quiero que haga busqueda
+    list_filter = ('job', 'habilidades','Departamento')               #dentro del parentesis va el registro donde quiero que haga busqueda
     filter_horizontal = ('habilidades',) #Solo funciona de muchis a muchos
 
 admin.site.register(Empleado, EmpleadoAdmin)
