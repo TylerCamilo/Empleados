@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, CreateView
 from .models import Prueba
+from .forms import PruebaForm
 
 
 #vistas es igual a logica del negocio
@@ -17,5 +18,14 @@ class ModeloPruebaListView(ListView):
     model = Prueba
     template_name = "home/pruebas.html"
     context_object_name="test"
+
+
+class PruebaCreateView(CreateView):
+    model = Prueba
+    template_name = "home/add.html"
+    #fields = ['titulo','subtitulo','cantidad']
+    form_class = PruebaForm
+    success_url = '/'
+
 
  
