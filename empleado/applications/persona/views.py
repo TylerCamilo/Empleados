@@ -1,8 +1,10 @@
 from typing import Any
 from django.db.models.query import QuerySet
 from django.shortcuts import render
-from django.views.generic import (ListView, DetailView,CreateView )
+from django.views.generic import (ListView, DetailView,CreateView,TemplateView, UpdateView, DeleteView )
 from .models import Empleado
+from django.urls import reverse_lazy
+
 
 class listAllEmpleados(ListView):
     template_name = 'persona/list_all.html'
@@ -56,11 +58,50 @@ class EmpleadoDetailView(DetailView):
         context['titulo'] = 'Empleado del mes'
         
         return context
+
+class SuccessView(TemplateView):
+    template_name = "persona/success.html"
+
     
 
 class EmpleadoCreateView(CreateView):
     model = Empleado
     template_name = "persona/add.html"
-    fields = ('__all__')
+    fields = ['first_name','last_name','job', 'Departamento','habilidades']
+    success_url = reverse_lazy ('persona_app:correcto')
+
+    def form_valid(self, form):
+        #logica del proceos
+        empleado = form.save()
+        empleado.full_name = empleado.first_name + ' ' + empleado.last_name
+        empleado.save()
+        return super(EmpleadoCreateView,self).form_valid(form)
+    
+
+
+class EmpleadoUpdateView(UpdateView):
+    model = Empleado
+    template_name = "persona/update.html"
+    fields = ['first_name','last_name','job', 'Departamento','habilidades']
+    success_url = reverse_lazy ('persona_app:correcto')
+   
+    def post(self, request, *args, **kwargs):
+            self.object = self.get_object()
+            print('*******************METODO POST********************')
+            print(request.POST)
+            print(request.POST['last_name'])
+            return super().post(request, *args, **kwargs)
+        
+    def form_valid(self, form):
+        #logica del proceos
+        print('*******************FORM_VALID********************')
+        return super(EmpleadoUpdateView,self).form_valid(form)
+    
+
+class EmpleadoDeleteView(DeleteView):
+    model = Empleado
+    template_name = "persona/delete.html"
+    success_url = reverse_lazy ('persona_app:correcto')
+
 
 

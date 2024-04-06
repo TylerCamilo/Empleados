@@ -17,6 +17,7 @@ class Empleado(models.Model):
     #""" Modelo para tabla empleado """
     first_name = models.CharField('Nombres',max_length=60)
     last_name = models.CharField('Apellidos',max_length=60)
+    full_name = models.CharField('Nombre Completo',max_length=60, blank=True)
     JOB_CHOICES = [
         ('0', 'CONTADOR'),
         ('1','ADMINISTRADOR'),
