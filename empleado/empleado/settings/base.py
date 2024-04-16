@@ -1,5 +1,8 @@
 from pathlib import Path
 
+#ADICIONAL EN VIDEO
+import os
+#BASE_DIR = Path(__file__).ancestor(3)
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent #agregamos un parent para decir que esta una carpeta mas abajo
 

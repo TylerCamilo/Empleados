@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="">Agregacion de prueba HOME</h1>
+    
+    <link rel="stylesheet" href="{% static 'css/foundation.min.css' %}">
+        
+        <form method="POST" class="ejemplo2">{% csrf_token%}
+            {{form.as_p}}
+            <button type="submit">Guardar</button>
+        </form>
+
+        <a href="about.html" class="button">Learn More</a>
+        <a href="#features" class="button">View All Features</a>
+
+        <!-- Buttons (actions) -->
+        <button class="submit success button">Save</button>
+        <button type="button" class="alert button">Delete</button>
+</body>
+</html>

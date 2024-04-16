@@ -22,3 +22,8 @@ DATABASES = {
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+#Elcurso sugiere la siguiente linea de codigo
+#STATICFILES_DIR = [BASE_DIR.child('static')]
+#Pero en documentacion funciona de la siguiente manera
+STATICFILES_DIRS = [BASE_DIR.joinpath('static')]
+

@@ -9,6 +9,9 @@ from .forms import PruebaForm
 class IndexView(TemplateView):
     template_name='home/home.html'
 
+class ResumeFoundationView(TemplateView):
+    template_name='home/resume_foundation.html'
+
 class PruebaListView(ListView):             #SE HEREDA DE LA ListView
     template_name = 'home/lista.html'       #LO QUE VAMOS A LISTAR
     queryset=['a','camilo',1994]

@@ -6,6 +6,11 @@ from .models import Empleado
 from django.urls import reverse_lazy
 
 
+#vista que carga la vista de inicio de mi app
+class InicioView(TemplateView):
+    template_name = "inicio.html"
+    
+
 class listAllEmpleados(ListView):
     template_name = 'persona/list_all.html'
     paginate_by = 4
