@@ -1,3 +1,4 @@
+from typing import Any
 from django.contrib import admin
 from .models import Empleado, Habilidades
 		
@@ -20,7 +21,7 @@ class EmpleadoAdmin(admin.ModelAdmin):
         'full_name',
         'id'
     )
-
+   
     def full_name(self,obj):
         #toda la operacion de la funcion
         print(obj.first_name)

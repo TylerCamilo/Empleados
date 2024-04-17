@@ -10,27 +10,36 @@ urlpatterns = [
 
     path('listar-todo-empleados/',
          views.listAllEmpleados.as_view(),
-         name = 'empleados_all'),
+         name='empleados_all'
+         ),
 
     path('buscar-empleado/',
          views.listEmpleadosByKword.as_view(),
          name = 'busqueda'
          ),
+
     path('listar-habilidades-empleado/',
          views.ListHabilidadesdesEmpleado.as_view(),
-         name = 'lista-habilidades'),
+         name = 'lista-habilidades'
+         ),
+
     path('ver-empleado/<pk>',
          views.EmpleadoDetailView.as_view(),
-         name = 'ver-empleado'),
+         name = 'empleado_detail'
+         ),
+
     path('add-empleado',
          views.EmpleadoCreateView.as_view(),
          name = 'agregar'),
+
     path('success',
          views.SuccessView.as_view(),
          name ='correcto'),
+
     path('update-empleado/<pk>',
          views.EmpleadoUpdateView.as_view(),
          name ='modificar_empleado'),
+
     path('delete-empleado/<pk>',
          views.EmpleadoDeleteView.as_view(),
          name ='eliminar_empleado')
