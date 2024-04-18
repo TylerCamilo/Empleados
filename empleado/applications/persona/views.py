@@ -15,6 +15,7 @@ class listAllEmpleados(ListView):
     template_name = 'persona/list_all.html'
     paginate_by = 6
     ordering = 'first_name'
+    context_object_name = 'empleados'
 
     def get_queryset(self):
         palabra_clave  = self.request.GET.get("kword", '')  #nos recupera lo que ingresemos en la caja.

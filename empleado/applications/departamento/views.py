@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.views.generic import ListView
 from django.shortcuts import render
 from django.views.generic.edit import FormView
 from .forms import NewDepartamentoForm
@@ -29,3 +30,9 @@ class NewDepartamentoView(FormView):
             Departamento = depa
         )
         return super(NewDepartamentoView, self).form_valid(form)
+    
+    
+class DepartamentoListView(ListView):
+        model = Departamento
+        template_name = "departamento/lista.html"
+    
