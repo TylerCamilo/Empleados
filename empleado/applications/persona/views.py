@@ -28,13 +28,16 @@ class listAllEmpleados(ListView):
 #lista de empleados por area
 class ListByAreaEmpleado(ListView):
     template_name = 'persona/list_by_area.html'
+    context_object_name = 'empleados'
 
     def get_queryset(self):
         #El codigo que deseamos
-        area=self.kwargs['shorname']
+        area = self.kwargs['shortname']
         lista = Empleado.objects.filter(
-        Departamento__name=area
+        Departamento__name__iexact = area # usamos iexact para que no conflicto en mayus y minus
         )
+        print(lista)
+        print(area)
         return lista
     
 class listEmpleadosByKword(ListView):

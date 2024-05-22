@@ -42,6 +42,10 @@ urlpatterns = [
 
     path('delete-empleado/<pk>',
          views.EmpleadoDeleteView.as_view(),
-         name ='eliminar_empleado')
+         name ='eliminar_empleado'),
+
+     path('list-by-area/<str:shortname>',
+         views.ListByAreaEmpleado.as_view(),
+         name ='empleados_area')
          
 ]
