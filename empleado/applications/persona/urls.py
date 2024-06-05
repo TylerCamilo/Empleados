@@ -30,7 +30,7 @@ urlpatterns = [
 
     path('add-empleado',
          views.EmpleadoCreateView.as_view(),
-         name = 'agregar'),
+         name = 'empleado_add'),
 
     path('success',
          views.SuccessView.as_view(),
@@ -46,6 +46,10 @@ urlpatterns = [
 
      path('list-by-area/<str:shortname>',
          views.ListByAreaEmpleado.as_view(),
-         name ='empleados_area')
+         name ='empleados_area'),
+
+     path('lista-empleados-admin/',
+         views.listaEmpleadosAdmin.as_view(),
+         name ='empleados_admin')
          
 ]

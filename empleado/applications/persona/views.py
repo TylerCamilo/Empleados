@@ -84,7 +84,7 @@ class EmpleadoCreateView(CreateView):
     model = Empleado
     template_name = "persona/add.html"
     fields = ['first_name','last_name','job', 'Departamento','habilidades']
-    success_url = reverse_lazy ('persona_app:correcto')
+    success_url = reverse_lazy ('persona_app:empleados_admin')
 
     def form_valid(self, form):
         #logica del proceos
@@ -99,7 +99,7 @@ class EmpleadoUpdateView(UpdateView):
     model = Empleado
     template_name = "persona/update.html"
     fields = ['first_name','last_name','job', 'Departamento','habilidades']
-    success_url = reverse_lazy ('persona_app:correcto')
+    success_url = reverse_lazy ('persona_app:empleados_admin')
    
     def post(self, request, *args, **kwargs):
             self.object = self.get_object()
@@ -117,7 +117,14 @@ class EmpleadoUpdateView(UpdateView):
 class EmpleadoDeleteView(DeleteView):
     model = Empleado
     template_name = "persona/delete.html"
-    success_url = reverse_lazy ('persona_app:correcto')
+    success_url = reverse_lazy ('persona_app:empleados_admin')
 
+#ACA HACEMOS LISTAR EMPLEDAOS ADMINISTRACION
+class listaEmpleadosAdmin(ListView):
+    template_name = 'persona/lista_empleados.html'
+    paginate_by = 10
+    ordering = 'first_name'
+    context_object_name = 'empleados'
+    model = Empleado
 
 

@@ -1,16 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>MODIFICAR DATOS DE EMPLEADO</h1>
-        <form method="POST">{% csrf_token%}
-            {{ form.as_p}}
-            <button type="submit">Actualizar</button>
-        </form>    
+{% extends 'base.html' %} //hacemos que herede unos estilos del base.html
+{% block title%}
+    Editar informacion de empleado //editamos el bloque tittle
+{% endblock title%}
+
+{% block content %}
+{% include 'includes/header.html' %} 
+<!-- //llamamos el header -->
+<div class="grid-container">
+    <div class="grid-x">
+        <h1 class="cell">
+            Modificar datos del empleado:           
+        </h1>
+        <div class="cell">
+            <form  class="grid-x grid-margin-x" method="POST">{% csrf_token%}
+                <div class="large-6 cell">
+                    <label>Nombres:
+                       {{form.first_name}}
+                    </label>
+                  </div>
+                  <div class="large-6 cell">
+                    <label>Apellidos:
+                       {{form.last_name}}
+                    </label>
+                  </div>
+                  <div class="large-6 cell">
+                    <label>Profesion:
+                       {{form.job}}
+                    </label>
+                  </div>
+                  <div class="large-6 cell">
+                    <label>Area:
+                       {{form.Departamento}}
+                    </label>
+                  </div>
+                  <div class="large-6 cell">
+                    <label>Profesion:
+                       {{form.habilidades}}
+                    </label>
+                  </div>
+                  <div class="cell">
+                    <button type="submit" class="button success">Actualizar</button>
+                  </div>
+            </form>
+        </div>
+    </div>
+</div>    
+{% endblock content %}
     
-</body>
-</html>
+
