@@ -83,7 +83,7 @@ class SuccessView(TemplateView):
 class EmpleadoCreateView(CreateView):
     model = Empleado
     template_name = "persona/add.html"
-    fields = ['first_name','last_name','job', 'Departamento','habilidades']
+    fields = ['first_name','last_name','job', 'Departamento','habilidades','avatar']
     success_url = reverse_lazy ('persona_app:empleados_admin')
 
     def form_valid(self, form):

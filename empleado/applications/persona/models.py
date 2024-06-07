@@ -30,7 +30,7 @@ class Empleado(models.Model):
     #Esta relacion es de uno a muchos
     Departamento = models.ForeignKey(Departamento, on_delete = models.CASCADE)
     #sql3lite no soporta imagenes, entonces quedara para app en el futuro
-    #avatar = models.ImageField(, upload_to=None, height_field=None, width_field=None, max_length=None)
+    avatar = models.ImageField(upload_to='empleado', blank=True,null=True)
     habilidades = models.ManyToManyField(Habilidades)
 
 

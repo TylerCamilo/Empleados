@@ -27,3 +27,5 @@ STATIC_URL = 'static/'
 #Pero en documentacion funciona de la siguiente manera
 STATICFILES_DIRS = [BASE_DIR.joinpath('static')]
 
+
+
